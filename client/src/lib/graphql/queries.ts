@@ -56,8 +56,8 @@ export const jobByIdQuery = gql`
 `;
 
 export const jobsQuery = gql`
-  query Jobs($limit: Int, $offset: Int) {
-    jobs(limit: $limit, offset: $offset) {
+  query Jobs($limit: Int, $skip: Int) {
+    jobs(limit: $limit, skip: $skip) {
       items {
         id
         date

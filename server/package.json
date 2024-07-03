@@ -4,9 +4,11 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start": "nodemon src/server.ts"
-  },
+  "build": "tsc",
+  "start": "nodemon src/server.ts",
+  "codegen": "graphql-codegen --config codegen.json",
+  "dev": "concurrently \"npm run start\" \"npm run codegen -- --watch\""
+},
   "dependencies": {
     "@apollo/server": "^4.9.4",
     "better-sqlite3": "^11.1.1",
@@ -20,8 +22,12 @@
     "nanoid": "^5.0.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/typescript": "^4.0.9",
+    "@graphql-codegen/typescript-resolvers": "^4.2.1",
     "@tsconfig/node18": "^18.2.2",
     "@types/cors": "^2.8.14",
+    "concurrently": "^8.2.2",
     "nodemon": "^3.0.1",
     "tsx": "^4.6.2",
     "typescript": "^5.2.2"
